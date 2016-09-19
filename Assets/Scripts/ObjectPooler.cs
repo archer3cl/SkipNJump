@@ -11,10 +11,10 @@ public class ObjectPooler : MonoBehaviour {
     void Start() {
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < pooledAmount; i++) {
-            GameObject obj = Instantiate(pooledObject);
+            GameObject obj = Instantiate(pooledObject);            
             obj.SetActive(false);
             pooledObjects.Add(obj);
-        }
+        }        
     }
 
     public GameObject GetPooledObject() {
