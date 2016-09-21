@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class GameController : MonoBehaviour {
-    public static GameController instance = null;
-    public PlatformsController platformsController;
+    public static GameController instance = null;    
     void Awake() {
         if (instance == null) {
             instance = this;
@@ -14,7 +13,7 @@ public class GameController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        platformsController.InitializePlatforms();
+        PlatformsController.instance.InitializePlatforms();
 	}
 	
 	// Update is called once per frame

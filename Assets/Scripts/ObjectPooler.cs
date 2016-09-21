@@ -7,8 +7,8 @@ public class ObjectPooler : MonoBehaviour {
     public int pooledAmount;
 
     private List<GameObject> pooledObjects;
-    // Use this for initialization
-    void Start() {
+    
+    void Awake() {
         pooledObjects = new List<GameObject>();
         for (int i = 0; i < pooledAmount; i++) {
             GameObject obj = Instantiate(pooledObject);            
