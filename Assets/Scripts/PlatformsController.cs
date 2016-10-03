@@ -5,24 +5,14 @@ public class PlatformsController : MonoBehaviour {
     public static PlatformsController instance = null;
     public ObjectPooler[] platformsPoolers;
     public Transform creationPoint;
-    public List<GameObject> generatedPlatforms;
-
+    public List<GameObject> generatedPlatforms;    
+   
     void Awake() {
         if (instance == null) {
             instance = this;
         } else if (instance != this) {
             Destroy(gameObject);
         }
-    }
-
-    // Use this for initialization
-    void Start () {
-        
-	}
-
-    // Update is called once per frame
-    void Update() {
-       
     }
 
     public void InitializePlatforms() {        
@@ -38,7 +28,6 @@ public class PlatformsController : MonoBehaviour {
         InstantiatePlatform(platformSelector);
     }
 
-
     private void InstantiatePlatform(int platformSelector) {        
         GameObject newPlatform = platformsPoolers[platformSelector].GetPooledObject();        
         newPlatform.transform.position = creationPoint.position;
@@ -47,4 +36,6 @@ public class PlatformsController : MonoBehaviour {
         creationPoint.position = new Vector3(creationPoint.position.x + newPlatform.GetComponent<Renderer>().bounds.size.x * 3, creationPoint.position.y, creationPoint.position.z);
         generatedPlatforms.Add(newPlatform);
     }
+
+
 }
